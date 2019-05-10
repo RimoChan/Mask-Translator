@@ -22,7 +22,8 @@ def 解釋(單詞):
     assert 回應.status_code == 200
     text = 回應.text
     結果 = re.findall('mycallback\("(.*?)"\)', text)
-    assert len(結果) == 1
+    if len(結果) != 1:
+        raise Exception(f'上網的回應爲「{text}」')
     緩存詞典[單詞] = 結果[0]
     return 結果[0]
 
