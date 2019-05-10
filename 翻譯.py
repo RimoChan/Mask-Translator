@@ -13,7 +13,9 @@ for i in keyword.kwlist:
     反向替換表[i] = '*關鍵字'
 
 def 改變形態(單詞):
-    return 單詞.replace(' ','_').lower()
+    單詞 = re.sub('[ \-\,\.]','_',單詞)
+    單詞 = re.sub('(^_|_$)','',單詞)
+    return 單詞.lower()
 
 def 翻譯(單詞):
     return 改變形態(詞義.解釋(單詞))

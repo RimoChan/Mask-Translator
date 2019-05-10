@@ -20,6 +20,8 @@ class 貓耳幼女:
         self.喵喵喵()
     def 喵喵喵(self):
         print(f'貓耳幼女: "喵喵喵"！')
+    def 啪啪啪(self, 别的人):
+        raise Exception('不能啪！')
 ```
 
 翻譯後: 
@@ -29,14 +31,20 @@ class cat_ear_girl:
     def __init__(self):
         self.meow_meow()
     def meow_meow(self):
-        print(f'貓耳幼女: "喵喵喵！"')
+        print(f'貓耳幼女: "喵喵喵"！')
+    def pop_snapping(self, someone_else):
+        raise Exception('不能啪！')
 ```
 
 嗯……
 
 `貓耳幼女` 的 `幼` 哪去了啊！
 
-還有 `喵喵喵` 真的不是少了一個嗎！
+`喵喵喵` 真的不是少了一個嗎！
+
+還有 `pop_snapping` 是什麼玩意！
+
+pop_snapping
 
 ## 使用方法
 
@@ -44,7 +52,7 @@ class cat_ear_girl:
 2.  `pip3 install requests opencc`
 3.  `python3 翻譯.py` 或者 `python3 文件夾翻譯.py`
 
-嗯……參數是寫死在__main__裏的所以要改成你自己的。
+嗯……參數是寫死在 `__main__` 裏的所以要改成你自己的。
 
 ## 注意
 
@@ -59,12 +67,10 @@ class cat_ear_girl:
 
 + 中文在翻譯後可能會和代碼裏的英文重複。
 
-+ 中文接英文的時候沒有下劃線。
-
-+ bing把標識符當作句子的時候會多出一個點。
++ 中文接英文的時候不會添加下劃線。
 
 ## 贊助
 
-如果你覺得「胡說八道的人」對你的工作或學習有幫助，歡迎給作者贊助一些 `貓耳幼女` 。
+如果你覺得「胡說八道的人」對你的工作或學習有幫助，歡迎給作者贊助一些 `貓耳幼女` 或者 `cat_ear_girl` 。
 
-(沒有 `貓耳幼女` 的話就會失去編程的動力，非常可怕所以一定要注意！)
+(沒有 `貓耳幼女` 的話就會失去編程的能力，非常可怕所以一定要注意！)
