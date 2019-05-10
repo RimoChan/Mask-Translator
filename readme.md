@@ -44,8 +44,6 @@ class cat_ear_girl:
 
 還有 `pop_snapping` 是什麼玩意！
 
-pop_snapping
-
 ## 使用方法
 
 1.  安裝python3.6及以上版本
