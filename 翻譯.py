@@ -23,7 +23,8 @@ def 翻譯(單詞):
 def 替換(單詞):
     單詞=單詞.group(0)
     if 單詞[0] in ["'",'"']:
-        return 單詞
+        結果 = re.sub(r'(?<={).*?(?=})',替換,單詞)
+        return 結果
     if 單詞 in 替換表: 
         return 替換表[單詞]
     結果 = 翻譯(cc.convert(單詞))

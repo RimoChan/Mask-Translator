@@ -19,9 +19,11 @@ class 貓耳幼女:
     def __init__(self):
         self.喵喵喵()
     def 喵喵喵(self):
-        print(f'貓耳幼女: "喵喵喵"！')
+        print('貓耳幼女: "喵喵喵"！')
     def 啪啪啪(self, 别的人):
         raise Exception('不能啪！')
+    def 摸摸(self, 部位):
+        print(f'{部位}很舒服。')
 ```
 
 翻譯後: 
@@ -31,9 +33,11 @@ class cat_ear_girl:
     def __init__(self):
         self.meow_meow()
     def meow_meow(self):
-        print(f'貓耳幼女: "喵喵喵"！')
+        print('貓耳幼女: "喵喵喵"！')
     def pop_snapping(self, someone_else):
         raise Exception('不能啪！')
+    def touch(self, parts):
+        print(f'{parts}很舒服。')
 ```
 
 嗯……
