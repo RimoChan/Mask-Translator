@@ -41,8 +41,8 @@ class cat_ear_girl:
 ## 使用方法
 
 1.  安裝python3.6及以上版本
-2.  pip3 install requests opencc
-3.  python3 翻譯.py 或者 python3 文件夾翻譯.py 
+2.  `pip3 install requests opencc`
+3.  `python3 翻譯.py` 或者 `python3 文件夾翻譯.py`
 
 嗯……參數是寫死在__main__裏的所以要改成你自己的。
 
@@ -55,7 +55,7 @@ class cat_ear_girl:
 + 顯然帶有反射的代碼是要出錯的。
 
 
-## 已知BUG
+## 有的毛病
 
 + 中文在翻譯後可能會和代碼裏的英文重複。
 
