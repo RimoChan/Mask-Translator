@@ -12,22 +12,25 @@ cc = opencc.OpenCC('t2s')
 for i in keyword.kwlist:
     反向替換表[i] = '*關鍵字'
 
+
 def 改變形態(單詞):
-    單詞 = re.sub('[ \-\,\.]','_',單詞)
-    單詞 = re.sub('(^_|_$)','',單詞)
+    單詞 = re.sub("[ \-\,\.\']", '_', 單詞)
+    單詞 = re.sub('(^_|_$)', '', 單詞)
     return 單詞.lower()
+
 
 def 翻譯(單詞):
     return 改變形態(詞義.解釋(單詞))
 
-def 替換(單詞):
-    單詞=單詞.group(0)
-    if 單詞[0] in ["'",'"']:
+
+def 單詞替換(單詞):
+    單詞 = 單詞.group(0)
+    if 單詞[0] in ["'", '"']:
         return 單詞
-    if 單詞[0]=='f':
-        結果 = re.sub(r'(?<={).*?(?=})',lambda x:處理(x.group(0)),單詞)
+    if 單詞[0] == 'f':
+        結果 = re.sub(r'(?<={).*?(?=})', lambda x: 處理(x.group(0)), 單詞)
         return 結果
-    if 單詞 in 替換表: 
+    if 單詞 in 替換表:
         return 替換表[單詞]
     結果 = 翻譯(cc.convert(單詞))
     替換表[單詞] = 結果
@@ -36,16 +39,18 @@ def 替換(單詞):
     反向替換表[結果] = 單詞
     return 結果
 
-def 處理(文): 
-    結果 = re.sub(r'''f?".*?"|f?'.*?'|[\u4E00-\u9FFF]+''',替換,文)
-    詞義.回寫()
+
+def 處理(代碼):
+    結果 = re.sub(r'''f?".*?"|f?'.*?'|[\u4E00-\u9FFF]+''', 單詞替換, 代碼)
+    詞義.全部回寫()
     return 結果
-    
-if __name__=='__main__':
-    print(處理('''
+
+
+if __name__ == '__main__':
+    s = '''
 class 貓耳幼女:
-    def __init__(self):
-        self.喵喵喵()
-    def 喵喵喵(self):
-        print(f'貓耳幼女: "喵喵喵！"')
-    '''))
+    def 推倒(self):
+        print(f'推倒: {self.推倒}！')
+
+貓耳幼女().推倒()'''
+    print(處理(s))

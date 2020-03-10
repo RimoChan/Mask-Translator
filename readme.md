@@ -1,14 +1,12 @@
-# 胡說八道的人
+# Mask-Translator: 假面翻譯！
 
 將中文代碼翻譯成英文的工具。
 
 嘛，就是那個嘛……經常要交作業什麼的，然後中文代碼直接交上去也不太好，手工翻譯又麻煩，就弄了這樣的東西。
 
-會調用bing翻譯把中文標識符都翻譯成英文的，因爲有本地緩存所以不會太消耗api的使用次數。   
+會調用Bing翻譯把中文標識符都翻譯成英文的，因爲有本地緩存所以不會太消耗api的使用次數。   
 (不過api居然是別人的……)
 
-雖然代碼一般可以運行，但顯然沒法保證翻譯的準確度。   
-所以會不會被老闆打成SB……只能聽天由命啦。
 
 ## 樣例
 
@@ -16,56 +14,78 @@
 
 ```python
 class 貓耳幼女:
-    def __init__(self):
-        self.喵喵喵()
-    def 喵喵喵(self):
-        print('貓耳幼女: "喵喵喵"！')
-    def 啪啪啪(self, 别的人):
-        raise Exception('不能啪！')
-    def 摸摸(self, 部位):
-        print(f'{部位}很舒服。')
+    def 推倒(self):
+        print(f'推倒: {self.推倒}！')
+
+貓耳幼女().推倒()
 ```
 
 翻譯後: 
 
 ```python
-class cat_ear_girl:
-    def __init__(self):
-        self.meow_meow()
-    def meow_meow(self):
-        print('貓耳幼女: "喵喵喵"！')
-    def pop_snapping(self, someone_else):
-        raise Exception('不能啪！')
-    def touch(self, parts):
-        print(f'{parts}很舒服。')
+class cat_eared_baby_girl:
+    def down(self):
+        print(f'推倒: {self.down}！')
+
+cat_eared_baby_girl().down()
 ```
 
-嗯……
+Mask Translator 真是太棒了！
 
-`貓耳幼女` 的 `幼` 哪去了啊！
-
-`喵喵喵` 真的不是少了一個嗎！
-
-還有 `pop_snapping` 是什麼玩意！
 
 ## 使用方法
 
-1.  安裝python3.6及以上版本
-2.  `pip3 install requests opencc`
-3.  `python3 翻譯.py` 或者 `python3 文件夾翻譯.py`
+先在要翻譯的文件夾放置 `translator.config.yaml` ，決定哪些文件怎麼要處理。   
+它應該像這樣——
 
-嗯……參數是寫死在 `__main__` 裏的所以要改成你自己的。
+```yaml
+list_of_files_to_translate:
+    - mask_change.py
+    - 詞義.py
+    - 翻譯.py
+list_of_files_to_copy:
+    - readme.md
+    - LICENSE
+```
+
+然後——
+
+1.  python3.6+
+2.  pip install -r requirements.txt
+3.  cd 要翻譯的文件夾
+4.  python mask_change.py -o 輸出文件夾
+
+這樣就會全部翻譯過去啦！
+
+
+## 自定義
+
+在翻譯之後，輸入文件夾的目錄下會生成文件 `translator.lock.yaml` ，這是翻譯記錄，保證下次翻譯的結果是一樣的。
+
+如果你對某些翻譯的結果不滿，可以按同樣的格式寫一個 `translator.custom.yaml` ，他會覆蓋原本的翻譯。
+
+比如像這樣——
+
+```yaml
+# translator.lock.yaml
+猫耳幼女: Cat-eared baby girl
+推倒: Down
+```
+
+```yaml
+# translator.custom.yaml
+推倒: Push down
+```
+
+之後 `推倒` 就會被翻譯成 `push_down` 。
+
 
 ## 注意
 
-+ 如果bing將多個中文翻譯成了同一個英文，或者翻譯成了關鍵字——本地會報錯所以不用擔心。
-
-+ 翻譯後的代碼全部是小寫而且全部使用下劃線分割。
-
-+ 顯然帶有反射的代碼是要出錯的。
+顯然用反射的代碼是要出錯的。
 
 
-## 有的毛病
+## 毛病
 
 + 中文在翻譯後可能會和代碼裏的英文重複。
 
@@ -73,8 +93,9 @@ class cat_ear_girl:
 
 + 因爲字符串分析是隨便寫的，所以沒法識別多行字符串。
 
+
 ## 贊助
 
-如果你覺得「胡說八道的人」對你的工作或學習有幫助，歡迎給作者贊助一些 `貓耳幼女` 或者 `cat_ear_girl` 。
+如果你覺得 Mask Translator 對你的工作或學習有幫助，歡迎給作者贊助一些 `貓耳幼女` 。
 
 (沒有 `貓耳幼女` 的話就會失去編程的能力，非常可怕所以一定要注意！)
