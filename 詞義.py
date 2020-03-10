@@ -16,12 +16,12 @@ if os.path.isfile(Path(此處) / '_詞典緩存.yaml'):
         緩存詞典 = yaml.safe_load(f)
 
 鎖定詞典 = {}
-if os.path.isfile('mask_translator.lock.yaml'):
+if os.path.isfile('translator.lock.yaml'):
     with open('translator.lock.yaml', encoding='utf8') as f:
         鎖定詞典 = yaml.safe_load(f)
 
 自定詞典 = {}
-if os.path.isfile('mask_translator.custom.yaml'):
+if os.path.isfile('translator.custom.yaml'):
     with open('translator.custom.yaml', encoding='utf8') as f:
         自定詞典 = yaml.safe_load(f)
 
