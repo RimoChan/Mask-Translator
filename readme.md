@@ -80,14 +80,27 @@ list_of_files_to_copy:
 之後 `推倒` 就會被翻譯成 `push_down` 。
 
 
+## 解決衝突
+
+如果你的代碼寫的比較奇怪以至於出現了衝突，可能會沒法翻譯，這時你就得添加自定條目來解決衝突。
+
+```python
+草(grass)
+```
+
+翻譯之後並不會變成 `grass(grass)` ，這個時候會提示你出現衝突，要去修改 `translator.custom.yaml` 。
+
+在 `translator.custom.yaml` 添加一行——
+
+```yaml
+草: fuck
+```
+
+就可以翻譯成 `fuck(grass)` 啦！
+
 ## 注意
 
 顯然用反射的代碼是要出錯的。
-
-
-## 毛病
-
-+ 中文在翻譯後可能會和代碼裏的英文重複。
 
 
 ## 贊助
