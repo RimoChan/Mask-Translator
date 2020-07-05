@@ -22,8 +22,8 @@ class 衝突Exception(Exception):
 
 
 def 改變形態(單詞):
+    單詞 = re.sub('(^[ \-\,\.\']|[ \-\,\.\']$)', '', 單詞)
     單詞 = re.sub("[ \-\,\.\']", '_', 單詞)
-    單詞 = re.sub('(^_|_$)', '', 單詞)
     return 單詞.lower()
 
 
