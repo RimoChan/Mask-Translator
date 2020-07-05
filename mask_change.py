@@ -37,7 +37,7 @@ def go(o):
         with open(輸出路徑 / 翻譯.處理(x), 'w', encoding='utf8') as f:
             f.write(結果)
             
-        logging.info(f'translate {輸入路徑 / x} -> {輸出路徑 / x}')
+        logging.info(f'translate {輸入路徑 / x} -> {輸出路徑 / 翻譯.處理(x)}')
 
     for x in config['list_of_files_to_copy']:
         if (輸出路徑 / x).is_dir():
